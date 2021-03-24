@@ -1,0 +1,22 @@
+{
+  "browser_action": {
+    "default_icon": "sd.png"
+  },
+  "description": "runs Snapdrop in the background",
+  "homepage_url": "https://github.com/ueen/SnapdropFirefoxAddon",
+  "manifest_version": 2,
+  "name": "Snapdrop for Firefox",
+  "version": "1.0",
+  "content_security_policy": "script-src 'self' https://snapdrop.net; object-src 'self'",
+  "permissions": [
+    "notifications",
+    "clipboardWrite",
+    "downloads"
+  ],
+  "background": {
+     "page": "sd.html"
+  },
+  "icons": {
+    "128": "sd.png"
+  }
+}

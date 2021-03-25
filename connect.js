@@ -128,5 +128,5 @@ class Snapdrop {
     }
 }
 
-const snapdrop = new Snapdrop();
-
+//const snapdrop = new Snapdrop();
+//in background.js

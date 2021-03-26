@@ -14,7 +14,7 @@ make sure that Snapdrop is only running once.
 (The background service is stopping if Snapdrop is opened in any tab, just make sure not to open Snapdrop in several tabs)
 
 get it https://addons.mozilla.org/de/firefox/addon/snapdrop-for-firefox/
-current version <b>1.5</b>
+<br>current version <b>1.5</b>
 
 Thanks for the awesome work of https://github.com/RobinLinus/snapdrop
 

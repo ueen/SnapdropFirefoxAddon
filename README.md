@@ -4,7 +4,9 @@ Share files between devices in your local network.
 By default this addon just displays an <b>popup</b> with the Snapdrop website so you can start recieving files/texts easily.
 
 <b>Background mode</b>
+<br>
 <i>can be enabled in the settings</i>
+<br>
 This runs Snapdrop in the background so you can send files/texts anytime and get notifications. If you click on the icon, Snapdrop is opened so you can also send.
 
 ATTENTION

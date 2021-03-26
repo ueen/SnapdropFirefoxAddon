@@ -2,13 +2,13 @@
   "browser_action": {
     "default_icon": "sd.png"
   },
-  "description": "runs Snapdrop in the background",
+  "description": "Share files between devices in your local network",
   "homepage_url": "https://github.com/ueen/SnapdropFirefoxAddon",
   "manifest_version": 2,
   "name": "Snapdrop for Firefox",
   "version": "1.5",
   "options_ui": {
-    "page": "options.html"
+    "page": "options/options.html"
   },
   "content_security_policy": "script-src 'self' https://snapdrop.net; object-src 'self'",
   "permissions": [
@@ -24,7 +24,7 @@
     }
   },
   "background": {
-     "scripts": ["network.js","connect.js","background.js"]
+     "scripts": ["snapdrop/network.js","snapdrop/connect.js","background.js"]
   },
   "icons": {
     "128": "sd.png"

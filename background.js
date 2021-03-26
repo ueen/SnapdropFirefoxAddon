@@ -8,7 +8,7 @@ browser.storage.sync.get(['SFAmode']).then(function (result) {
 			browser.tabs.onRemoved.addListener(handleRemoved);
 			break;
 		default: //popup
-			browser.browserAction.setPopup({popup: 'popup.html'});
+			browser.browserAction.setPopup({popup: 'popup/popup.html'});
 			break;
 	}
 });

@@ -34,7 +34,7 @@ class Notifications {
             "title": message,
             "message": body
           });
-
+        console.log('notify');
         // Notification is persistent on Android. We have to close it manually
         if (closeTimeout) {
             setTimeout(_ => browser.notifications.clear(notification), closeTimeout);
@@ -120,11 +120,9 @@ class Snapdrop {
         const server = new ServerConnection();
         const peers = new PeersManager(server);
         //const peersUI = new PeersUI();
-        Events.on('load', e => {
-            const notifications = new Notifications();
-            const networkStatusUI = new NetworkStatusUI();
-            const webShareTargetUI = new WebShareTargetUI();
-        });
+        const notifications = new Notifications();
+        const networkStatusUI = new NetworkStatusUI();
+        const webShareTargetUI = new WebShareTargetUI();
     }
 }
 

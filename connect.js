@@ -117,12 +117,20 @@ class WebShareTargetUI {
 
 class Snapdrop {
     constructor() {
-        const server = new ServerConnection();
-        const peers = new PeersManager(server);
+        this.server = new ServerConnection();
+        const peers = new PeersManager(this.server);
         //const peersUI = new PeersUI();
+        //call after load!
         const notifications = new Notifications();
         const networkStatusUI = new NetworkStatusUI();
         const webShareTargetUI = new WebShareTargetUI();
+    }
+
+    get server() {
+        return this._server;
+    }
+    set server(s) {
+        this._server = s;
     }
 }
 

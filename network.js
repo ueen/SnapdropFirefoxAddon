@@ -54,6 +54,14 @@ class ServerConnection {
         this._socket.send(JSON.stringify(message));
     }
 
+    stop() {
+        this._disconnect();
+    }
+
+    restart() {
+        this._connect();
+    }
+
     _endpoint() {
         // hack to detect if deployment or development environment
         const webrtc = window.isRtcSupported ? '/webrtc' : '/fallback';

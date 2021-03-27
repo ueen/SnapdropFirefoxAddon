@@ -9,6 +9,9 @@
   	#info {
 	    transition: opacity 1s;
 	}
+	#winpop, #winpoplabel {
+		display: none;
+	}
   </style>
 
   <body>
@@ -19,6 +22,9 @@
   			<option value="popup">Popup</option>
  			<option value="back">Background</option>
 		</select>
+		<br>
+		<input type="checkbox" name="winpop" id="winpop">
+		<label id="winpoplabel" for="winpop">popup in window</label>
     </form>
 
     <span id="info"></span>

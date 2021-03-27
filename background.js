@@ -1,11 +1,16 @@
 let snapdrop;
 
-browser.storage.sync.get(['SFAmode']).then(function (result) {
+let sdURL = "https://snapdrop.net/";
+
+var winPop = false;
+
+browser.storage.sync.get(['SFAmode','Winpop']).then(function (result) {
 	switch (result.SFAmode) {
 		case "back":
 			snapdrop = new Snapdrop();
 			browser.tabs.onUpdated.addListener(handleUpdated);
 			browser.tabs.onRemoved.addListener(handleRemoved);
+			winPop = result.Winpop || false;
 			break;
 		default: //popup
 			browser.browserAction.setPopup({popup: 'popup/popup.html'});
@@ -19,11 +24,21 @@ browser.runtime.onMessage.addListener(_ => browser.runtime.reload());
 function browserActionClick() { //only in background mode
 	browser.tabs.query({url: "*://*.snapdrop.net/*"}).then( tabs => {
 		if (tabs.length <= 0) {
-			browser.tabs.create({url:"https://snapdrop.net/"});
+			if (winPop) {
+				browser.windows.create({
+				    url: sdURL,
+				    type: "popup",
+				    height: 480,
+				    width: 360
+				  });
+			} else {
+				browser.tabs.create({url: sdURL});
+			}
 		} else {
 			browser.tabs.update(tabs[0].id, {
 			    active: true
 			 });
+			browser.windows.update(tabs[0].windowId, {focused:true})
 		}
 	});
 }

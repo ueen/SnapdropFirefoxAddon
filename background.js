@@ -4,6 +4,10 @@ let sdURL = "https://snapdrop.net/";
 
 var winPop = false;
 
+// Temporary chrome support polyfill
+if(!browser) {
+var browser = chrome;
+}
 browser.storage.sync.get(['SFAmode','Winpop']).then(function (result) {
 	switch (result.SFAmode) {
 		case "back":

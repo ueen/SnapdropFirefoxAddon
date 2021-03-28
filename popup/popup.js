@@ -1,3 +1,7 @@
+// Temporary chrome support polyfill
+if(!browser) {
+var browser = chrome;
+}
 browser.tabs.query({url: "*://*.snapdrop.net/*"}).then( tabs => {
 	if (tabs.length <= 0) {
 		document.getElementById('iframe').src = 'https://snapdrop.net/';

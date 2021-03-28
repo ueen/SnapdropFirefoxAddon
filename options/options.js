@@ -1,3 +1,7 @@
+// Temporary chrome support polyfill
+if(!browser) {
+var browser = chrome;
+}
 function saveOptions() {
   
   browser.storage.sync.set({

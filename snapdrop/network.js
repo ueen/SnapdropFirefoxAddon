@@ -1,3 +1,9 @@
+// Temporary chrome support polyfill
+// Not needed right now, included in case any browser APIs are introduces into this component.
+if(!browser) {
+var browser = chrome;
+}
+
 window.URL = window.URL || window.webkitURL;
 window.isRtcSupported = !!(window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection);
 

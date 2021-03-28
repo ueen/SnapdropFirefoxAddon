@@ -1,4 +1,8 @@
 //ui.js modified
+// Temporary chrome support polyfill
+if(!browser) {
+var browser = chrome;
+}
 
 const isURL = text => /^((https?:\/\/|www)[^\s]+)/g.test(text.toLowerCase());
 

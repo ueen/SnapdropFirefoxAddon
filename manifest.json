@@ -24,7 +24,11 @@
     }
   },
   "background": {
-     "scripts": ["snapdrop/network.js","snapdrop/connect.js","background.js"]
+     "scripts": [
+       "snapdrop/network.js",
+       "snapdrop/connect.js",
+       "background.js"
+     ]
   },
   "icons": {
     "128": "sd.png"

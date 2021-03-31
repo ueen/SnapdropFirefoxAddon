@@ -1,7 +1,7 @@
 # Snapdrop for Firefox (Addon)
 Share files between devices in your local network.
 
-By default, this addon just displays an <b>popup</b> with the <a href="https://Snapdrop.net/" target="_blank">Snapdrop</a> website so you can start recieving files and texts easily.
+By default, this addon just displays a <b>popup</b> with the <a href="https://Snapdrop.net/" target="_blank">Snapdrop</a> website so you can start recieving files and texts easily.
 
 <b>Background mode</b>
 <br>
@@ -9,7 +9,7 @@ By default, this addon just displays an <b>popup</b> with the <a href="https://S
 <br>
 This runs Snapdrop in the background so you can send files/texts anytime and get notifications. If you click on the icon, Snapdrop is opened so you can also send.
 
-ATTENTION
+ATTENTION:
 make sure that Snapdrop is only running once.
 (The background service will stop working if Snapdrop is opened in any tab, just make sure not to open Snapdrop in several tabs)
 

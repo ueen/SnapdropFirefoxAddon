@@ -2,37 +2,62 @@ let snapdrop;
 
 let sdURL = "https://snapdrop.net/";
 
-var winPop = false;
+const popupModes = {
+  Winpop: 'winpop',
+  Tab: 'tab'
+}
 
-browser.storage.sync.get(['SFAmode','Winpop']).then(function (result) {
-	switch (result.SFAmode) {
-		case "back":
-			snapdrop = new Snapdrop();
-			browser.tabs.onUpdated.addListener(handleUpdated);
-			browser.tabs.onRemoved.addListener(handleRemoved);
-			winPop = result.Winpop || false;
+let popupMode;
+
+browser.storage.sync.get(['SdAmode','Backg']).then(function (result) {
+	switch (result.SdAmode) {
+		case "winpop":
+		case "tab":
+			popupMode = result.SdAmode;
 			break;
-		default: //popup
+		default: //classic popup
 			browser.browserAction.setPopup({popup: 'popup/popup.html'});
 			break;
+	}
+
+	if (result.Backg || false) {
+		snapdrop = new Snapdrop();
+		browser.tabs.onUpdated.addListener(handleUpdated);
+		browser.tabs.onRemoved.addListener(handleRemoved);
 	}
 });
 
 browser.browserAction.onClicked.addListener(browserActionClick);
-browser.runtime.onMessage.addListener(_ => browser.runtime.reload());
+browser.runtime.onMessage.addListener(message => {
+	switch (message.action) {
+		case "reload":
+			browser.runtime.reload()
+			break;
+		case "stop":
+			stop();
+			break;
+		case "restart":
+			restart();
+			break;
+	}
+	
+});
 
-function browserActionClick() { //only in background mode
+function browserActionClick() { //only if not 'classic' Popup Mode
 	browser.tabs.query({url: "*://*.snapdrop.net/*"}).then( tabs => {
 		if (tabs.length <= 0) {
-			if (winPop) {
-				browser.windows.create({
-				    url: sdURL,
-				    type: "popup",
-				    height: 480,
-				    width: 360
-				  });
-			} else {
-				browser.tabs.create({url: sdURL});
+			switch (popupMode) {
+				case popupModes.Winpop:
+					browser.windows.create({
+					    url: sdURL,
+					    type: "popup",
+					    height: 480,
+					    width: 360
+					});
+					break;
+				case popupModes.Tab:
+					browser.tabs.create({url: sdURL});
+					break;
 			}
 		} else {
 			browser.tabs.update(tabs[0].id, {
@@ -63,10 +88,14 @@ function handleRemoved(tabId, removeInfo) {
 }
 
 function restart() {
-	snapdrop.server.restart();
-  	console.log('background snapdrop restarted');
+	if (snapdrop) {
+		snapdrop.server.restart();
+  		console.log('background snapdrop restarted');
+	}
 }
 function stop() {
-	snapdrop.server.stop(); 
-  	console.log('background snapdrop stopped'); 
+	if (snapdrop) {
+		snapdrop.server.stop(); 
+	  	console.log('background snapdrop stopped'); 
+	}
 }

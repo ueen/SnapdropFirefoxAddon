@@ -1,8 +1,6 @@
 # Snapdrop for Firefox (Addon)
 Share files between devices in your local network.
 
-<i>Chrome support coming soon</i>
-
 By default, this addon just displays a <b>popup</b> with the <a href="https://Snapdrop.net/" target="_blank">Snapdrop</a> website so you can start recieving files and texts easily.
 
 <b>Background mode</b>
@@ -21,3 +19,5 @@ Install the extension at: <a href="https://addons.mozilla.org/de/firefox/addon/s
 Thanks for the awesome work of https://github.com/RobinLinus/snapdrop
 
 I also recommend using this great app: <a href="https://github.com/fm-sys/snapdrop-android" target="_blank">Snapdrop for Android</a>
+
+#### Chrome support coming soon

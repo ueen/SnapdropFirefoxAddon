@@ -32,3 +32,5 @@ That's it, enjoy!
 Thanks for the awesome work of <a href="https://github.com/RobinLinus/snapdrop" target="_blank">Snapdrop</a>
 
 I also recommend using this great app: <a href="https://github.com/fm-sys/snapdrop-android" target="_blank">Snapdrop for Android</a>
+
+Chrome Support thanks to <a href="https://github.com/mozilla/webextension-polyfill" target="_blank">WebExtension browser API Polyfill</a>

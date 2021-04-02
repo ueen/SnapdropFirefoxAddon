@@ -3,12 +3,13 @@ Share files between devices in your local network.
 
 ## Description
 By default, this addon just displays a <b>popup</b> with the <a href="https://Snapdrop.net/" target="_blank">Snapdrop</a> website so you can start recieving files and texts easily. In the Popup the URL of the current Tab is posted to the Message Dialog (right click).
+You can change the Mode in the addons settings either to 'Popup in new window' or 'Open Tab instead'.
 
 <b>Background mode</b>
 <br>
 <i>can be enabled in the settings</i>
 <br>
-This runs Snapdrop in the background so you can send files/texts anytime and get notifications. If you click on the icon, Snapdrop is opened so you can also send.
+This runs Snapdrop in the background so you can send files/texts anytime and get notifications.
 
 ATTENTION:
 make sure that Snapdrop is only running once.

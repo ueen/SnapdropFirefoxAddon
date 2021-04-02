@@ -1,7 +1,8 @@
-# Snapdrop for Firefox (Addon)
+# Snapdrop Web Extension (Addon)
 Share files between devices in your local network.
 
-By default, this addon just displays a <b>popup</b> with the <a href="https://Snapdrop.net/" target="_blank">Snapdrop</a> website so you can start recieving files and texts easily.
+## Description
+By default, this addon just displays a <b>popup</b> with the <a href="https://Snapdrop.net/" target="_blank">Snapdrop</a> website so you can start recieving files and texts easily. In the Popup the URL of the current Tab is posted to the Message Dialog (right click).
 
 <b>Background mode</b>
 <br>
@@ -13,11 +14,21 @@ ATTENTION:
 make sure that Snapdrop is only running once.
 (The background service will stop working if Snapdrop is opened in any tab, just make sure not to open Snapdrop in several tabs)
 
-Install the extension at: <a href="https://addons.mozilla.org/de/firefox/addon/snapdrop-for-firefox/" target="_blank">Snapdrop for Firefox - Firefox Addons</a>
-<br>current version: <b>1.7</b>
+## Install
+current version: <b>1.8</b>
 
-Thanks for the awesome work of https://github.com/RobinLinus/snapdrop
+### Firefox
+<a href="https://addons.mozilla.org/de/firefox/addon/snapdrop-for-firefox/" target="_blank">Snapdrop for Firefox - Firefox Addons</a>
+
+### Chrome
+- <a href="https://github.com/ueen/SnapdropFirefoxAddon/releases/" target="_blank">Download</a> the latest release zip and extract
+- open <a href="chrome://extensions/" target="_blank">chrome://extensions</a> (enable developer mode)
+- 'Load unpacked extension' and select the extracted folder
+
+That's it, enjoy!
+</br><i>(if you want to add it to Chrome Web Store, please open an issue/discussion)</i>
+
+## Acknowledgements
+Thanks for the awesome work of <a href="https://github.com/RobinLinus/snapdrop" target="_blank">Snapdrop</a>
 
 I also recommend using this great app: <a href="https://github.com/fm-sys/snapdrop-android" target="_blank">Snapdrop for Android</a>
-
-#### <i>Chrome support coming soon</i>

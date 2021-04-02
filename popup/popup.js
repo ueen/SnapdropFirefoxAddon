@@ -11,11 +11,9 @@ browser.tabs.query({}).then( tabs => {
 });
 
 function main(shareTargetText) {
-	browser.runtime.sendMessage({action: "stop"})
+	browser.runtime.connect({ name: "popup" });
 
 	let iframe = document.getElementById('iframe');
 	//automatically past current url
 	iframe.src = 'https://snapdrop.net/?url='+shareTargetText;
-
-	window.onunload = function(event) { browser.runtime.sendMessage({action: "restart"}); };
 }

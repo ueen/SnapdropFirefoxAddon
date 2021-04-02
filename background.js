@@ -31,7 +31,7 @@ browser.browserAction.onClicked.addListener(browserActionClick);
 browser.runtime.onMessage.addListener(message => {
 	switch (message.action) {
 		case "reload":
-			browser.runtime.reload()
+			browser.runtime.reload();
 			break;
 		case "stop":
 			stop();

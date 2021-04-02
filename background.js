@@ -17,6 +17,12 @@ browser.storage.sync.get(['SdAmode','Backg']).then(function (result) {
 			break;
 		default: //classic popup
 			browser.browserAction.setPopup({popup: 'popup/popup.html'});
+			browser.runtime.onConnect.addListener(function(port) {
+				if (port.name === "popup") {
+					stop();
+					port.onDisconnect.addListener(_ => restart());
+				}
+			});
 			break;
 	}
 
@@ -28,19 +34,8 @@ browser.storage.sync.get(['SdAmode','Backg']).then(function (result) {
 });
 
 browser.browserAction.onClicked.addListener(browserActionClick);
-browser.runtime.onMessage.addListener(message => {
-	switch (message.action) {
-		case "reload":
-			browser.runtime.reload();
-			break;
-		case "stop":
-			stop();
-			break;
-		case "restart":
-			restart();
-			break;
-	}
-	
+browser.runtime.onMessage.addListener(_ => {
+	browser.runtime.reload();
 });
 
 function browserActionClick() { //only if not 'classic' Popup Mode

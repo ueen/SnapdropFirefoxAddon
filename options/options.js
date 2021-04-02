@@ -7,7 +7,11 @@ function saveOptions() {
 
   document.querySelector("#saveStateOut").textContent = "saved";
   document.querySelector("#saveStateOut").style.opacity = 0;
-  document.querySelector("#saveStateOut").addEventListener('transitionend', () => browser.runtime.sendMessage({action: "reload"}));
+  document.querySelector("#saveStateOut").addEventListener('transitionend', () => {
+    browser.runtime.sendMessage({action: "reload"});
+    //For chromes floating options
+    window.close();
+  });
 }
 
 function restoreOptions() {

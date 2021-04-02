@@ -22,7 +22,7 @@ current version: <b>1.8</b>
 
 ### Chrome
 - <a href="https://github.com/ueen/SnapdropFirefoxAddon/releases/" target="_blank">Download</a> the latest release zip and extract
-- open chrome://extensions/ (enable developer mode)
+- open <a href="chrome://extensions/" target="_blank">chrome://extensions</a> (enable developer mode)
 - 'Load unpacked extension' and select the extracted folder
 
 That's it, enjoy!

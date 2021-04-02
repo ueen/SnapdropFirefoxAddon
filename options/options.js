@@ -9,8 +9,10 @@ function saveOptions() {
   document.querySelector("#saveStateOut").style.opacity = 0;
   document.querySelector("#saveStateOut").addEventListener('transitionend', () => {
     browser.runtime.sendMessage({action: "reload"});
-    //For chromes floating options
-    window.close();
+    //for chromes floating options
+    if (window.chrome) {
+      window.close();
+    }
   });
 }
 

@@ -20,4 +20,4 @@ Thanks for the awesome work of https://github.com/RobinLinus/snapdrop
 
 I also recommend using this great app: <a href="https://github.com/fm-sys/snapdrop-android" target="_blank">Snapdrop for Android</a>
 
-#### Chrome support coming soon
+#### <i>Chrome support coming soon</i>

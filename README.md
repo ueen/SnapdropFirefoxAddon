@@ -9,7 +9,7 @@ You can change the Mode in the addons settings either to 'Popup in new window' o
 <br>
 <i>can be enabled in the settings</i>
 <br>
-This runs Snapdrop in the background so you can send files/texts anytime and get notifications.
+This runs Snapdrop in the background so you can receive files/texts anytime and get notifications.
 
 ATTENTION:
 make sure that Snapdrop is only running once.

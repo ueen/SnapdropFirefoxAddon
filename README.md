@@ -18,7 +18,7 @@ make sure that Snapdrop is only running once.
 #### Kown issue
 Firefox: sending files from the popup does not work (FilePicker causes the Popup to close), this is a <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1292701" target="_blank">known bug</a>. Therefore I recommend changing the Mode in the addons settings either to 'Popup in new window' or 'Open Tab instead'.
 </br>
-Chrome: Warning https://github.com/ueen/SnapdropFirefoxAddon/issues/23
+Chrome: <a href="Warning https://github.com/ueen/SnapdropFirefoxAddon/issues/23" target="_blank">Unrecognized manifest key 'browser_specific_settings'</a>
 
 ## Install
 current version: <b>1.8</b>

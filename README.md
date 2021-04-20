@@ -2,8 +2,8 @@
 Share files between devices in your local network.
 
 ## Description
-By default, this addon just displays a <b>popup</b> with the <a href="https://Snapdrop.net/" target="_blank">Snapdrop</a> website so you can start recieving files and texts easily. In the Popup the URL of the current Tab is posted to the Message Dialog (right click).
-You can change the Mode in the addons settings either to 'Popup in new window' or 'Open Tab instead'.
+By default, this addon just displays a <b>popup</b> with the <a href="https://Snapdrop.net/" target="_blank">Snapdrop</a> website so you can start recieving files and texts easily. In the popup the URL of the current tab is posted to the Message Dialog (right click).
+You can change the mode in the addons settings either to 'Popup in new window' or 'Open Tab instead'.
 
 <b>Background mode</b>
 <br>

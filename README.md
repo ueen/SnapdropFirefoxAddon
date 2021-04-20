@@ -13,7 +13,7 @@ This runs Snapdrop in the background so you can receive files/texts anytime and 
 
 ATTENTION:
 make sure that Snapdrop is only running once.
-(The background service will stop working if Snapdrop is opened in any tab, just make sure not to open Snapdrop in several tabs)
+(The background service will stop running if Snapdrop is opened in any tab, just make sure not to open Snapdrop in several tabs)
 
 #### Kown issue
 Firefox: sending files from the popup does not work (FilePicker causes the Popup to close), this is a <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1292701" target="_blank">known bug</a>. Therefore I recommend changing the Mode in the addons settings either to 'Popup in new window' or 'Open Tab instead'.

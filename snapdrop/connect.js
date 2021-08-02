@@ -116,8 +116,8 @@ class WebShareTargetUI {
 
 
 class Snapdrop {
-    constructor() {
-        this.server = new ServerConnection();
+    constructor(url) {
+        this.server = new ServerConnection(url);
         const peers = new PeersManager(this.server);
         //const peersUI = new PeersUI();
         //call after load!

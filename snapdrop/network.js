@@ -3,7 +3,8 @@ window.isRtcSupported = !!(window.RTCPeerConnection || window.mozRTCPeerConnecti
 
 class ServerConnection {
 
-    constructor() {
+    constructor(url) {
+        this._url = url;
         this._connect();
         Events.on('beforeunload', e => this._disconnect());
         Events.on('pagehide', e => this._disconnect());
@@ -65,7 +66,7 @@ class ServerConnection {
     _endpoint() {
         // hack to detect if deployment or development environment
         const webrtc = window.isRtcSupported ? '/webrtc' : '/fallback';
-        const url = 'wss://' + 'snapdrop.net' + '/server' + webrtc;
+        const url = 'wss://' + this._url + '/server' + webrtc;
         return url;
     }
 

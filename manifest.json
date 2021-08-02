@@ -6,7 +6,7 @@
   "homepage_url": "https://github.com/ueen/SnapdropFirefoxAddon",
   "manifest_version": 2,
   "name": "Snapdrop Browser Extension",
-  "version": "1.8",
+  "version": "1.9",
   "options_ui": {
     "page": "options/options.html"
   },

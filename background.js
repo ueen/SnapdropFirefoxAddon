@@ -1,6 +1,6 @@
 let snapdrop;
 
-let sdURL = "https://snapdrop.net/";
+let sdURL = "https://snapdrop.net";
 
 const popupModes = {
   Winpop: 'winpop',
@@ -9,7 +9,7 @@ const popupModes = {
 
 let popupMode;
 
-browser.storage.sync.get(['SdAmode','Backg']).then(function (result) {
+browser.storage.sync.get({SdAmode:"", Backg:false, Servr:"https://snapdrop.net"}).then(function (result) {
 	switch (result.SdAmode) {
 		case "winpop":
 		case "tab":
@@ -26,8 +26,10 @@ browser.storage.sync.get(['SdAmode','Backg']).then(function (result) {
 			break;
 	}
 
-	if (result.Backg || false) {
-		snapdrop = new Snapdrop();
+	sdURL = result.Servr;
+
+	if (result.Backg) {
+		snapdrop = new Snapdrop(result.Servr);
 		browser.tabs.onUpdated.addListener(handleUpdated);
 		browser.tabs.onRemoved.addListener(handleRemoved);
 	}
@@ -39,7 +41,7 @@ browser.runtime.onMessage.addListener(_ => {
 });
 
 function browserActionClick() { //only if not 'classic' Popup Mode
-	browser.tabs.query({url: "*://*.snapdrop.net/*"}).then( tabs => {
+	browser.tabs.query({url: "*://*."+sdURL.split("//")[1]+"/*"}).then( tabs => {
 		if (tabs.length <= 0) {
 			switch (popupMode) {
 				case popupModes.Winpop:
@@ -68,7 +70,7 @@ function browserActionClick() { //only if not 'classic' Popup Mode
 var sdTab;
 
 function handleUpdated(tabId, changeInfo, tabInfo) {
-  if (tabInfo.url.includes('snapdrop.net')) {
+  if (tabInfo.url.includes(sdURL.split("//")[1])) {
   		stop();
   		sdTab = tabId;
   } else if (tabId == sdTab) {

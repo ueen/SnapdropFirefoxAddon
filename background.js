@@ -29,7 +29,7 @@ browser.storage.sync.get({SdAmode:"", Backg:false, Servr:"https://snapdrop.net"}
 	sdURL = result.Servr;
 
 	if (result.Backg) {
-		snapdrop = new Snapdrop(result.Servr);
+		snapdrop = new Snapdrop(sdURL.split("//")[1]);
 		browser.tabs.onUpdated.addListener(handleUpdated);
 		browser.tabs.onRemoved.addListener(handleRemoved);
 	}

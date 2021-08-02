@@ -11,6 +11,10 @@ You can change the mode in the addons settings either to 'Popup in new window' o
 <br>
 This runs Snapdrop in the background so you can receive files/texts anytime and get notifications.
 
+<b>Server</b>
+<br>
+The URL can be specified in the settings, protocol required (http/https)
+
 ATTENTION:
 make sure that Snapdrop is only running once.
 (The background service will stop running if Snapdrop is opened in any tab, just make sure not to open Snapdrop in several tabs)
@@ -21,7 +25,7 @@ Firefox: sending files from the popup does not work (FilePicker causes the Popup
 Chrome: <a href="https://github.com/ueen/SnapdropFirefoxAddon/issues/23" target="_blank">Unrecognized manifest key 'browser_specific_settings'</a>
 
 ## Install
-current version: <b>1.8</b>
+current version: <b>1.9</b>
 
 ### Firefox
 <a href="https://addons.mozilla.org/de/firefox/addon/snapdrop-for-firefox/" target="_blank">Snapdrop for Firefox - Firefox Addons</a>

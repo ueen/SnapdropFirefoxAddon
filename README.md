@@ -3,7 +3,7 @@ Share files between devices in your local network.
 
 ## Description
 By default, this addon just displays a <b>popup</b> with the <a href="https://Snapdrop.net/" target="_blank">Snapdrop</a> website so you can start recieving files and texts easily. In the popup the URL of the current tab is posted to the Message Dialog (right click).
-You can change the mode in the addons settings either to 'Popup in new window' or 'Open Tab instead'.
+You can change the mode in the addons settings either to 'Popup in new window' or 'Open Tab instead' or 'Open in Sidebar'.
 
 <b>Background mode</b>
 <br>
@@ -25,7 +25,7 @@ Firefox: sending files from the popup does not work (FilePicker causes the Popup
 Chrome: <a href="https://github.com/ueen/SnapdropFirefoxAddon/issues/23" target="_blank">Unrecognized manifest key 'browser_specific_settings'</a>
 
 ## Install
-current version: <b>1.9</b>
+current version: <b>1.9.5</b>
 
 ### Firefox
 <a href="https://addons.mozilla.org/de/firefox/addon/snapdrop-for-firefox/" target="_blank">Snapdrop for Firefox - Firefox Addons</a>

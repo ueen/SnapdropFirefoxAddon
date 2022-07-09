@@ -25,7 +25,7 @@ Firefox: sending files from the popup does not work (FilePicker causes the Popup
 Chrome: <a href="https://github.com/ueen/SnapdropFirefoxAddon/issues/23" target="_blank">Unrecognized manifest key 'browser_specific_settings'</a>
 
 ## Install
-current version: <b>1.9.5</b>
+current version: <b>1.9.7</b>
 
 ### Firefox
 <a href="https://addons.mozilla.org/de/firefox/addon/snapdrop-for-firefox/" target="_blank">Snapdrop for Firefox - Firefox Addons</a>

@@ -9,7 +9,7 @@ function saveOptions() {
   document.querySelector("#saveStateOut").textContent = "saved";
   document.querySelector("#saveStateOut").style.opacity = 0;
   document.querySelector("#saveStateOut").addEventListener('transitionend', () => {
-    browser.runtime.sendMessage({action: "reload"});
+    browser.runtime.sendMessage("reload");
     //for chromes floating options
     if (window.chrome) {
       window.close();

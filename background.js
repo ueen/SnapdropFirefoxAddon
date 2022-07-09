@@ -11,18 +11,22 @@ const popupModes = {
 let popupMode;
 
 browser.storage.sync.get({SdAmode:"", Backg:false, Servr:"https://snapdrop.net"}).then(function (result) {
+	sdURL = result.Servr;
+
 	popupMode = result.SdAmode;
 	switch (result.SdAmode) {
 		case popupModes.Sidebar:
 			popupListener();
+			sidebarInit();
+		case popupModes.Winpop:
+		case popupModes.Tab:
+			browser.browserAction.onClicked.addListener(browserActionClick);
 			break;
 		default: //classic popup
 			browser.browserAction.setPopup({popup: 'popup/popup.html'});
 			popupListener();
 			break;
 	}
-
-	sdURL = result.Servr;
 
 	if (result.Backg) {
 		snapdrop = new Snapdrop(sdURL.split("//")[1]);
@@ -31,9 +35,15 @@ browser.storage.sync.get({SdAmode:"", Backg:false, Servr:"https://snapdrop.net"}
 	}
 });
 
-browser.browserAction.onClicked.addListener(browserActionClick);
-browser.runtime.onMessage.addListener(_ => {
-	browser.runtime.reload();
+browser.runtime.onMessage.addListener(action => {
+	switch (action) {
+		case "reload":
+			browser.runtime.reload();
+			break;
+		case "sidebarClick":
+			sidebarListener();
+			break;
+	}
 });
 
 function popupListener() {
@@ -44,6 +54,31 @@ function popupListener() {
 				}
 			});
 }
+
+function sidebarListener() {
+	browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
+		if (message === "sidebarClick") {
+			browser.tabs.query({active: true}).then(tabs => {
+				sendResponse(tabs[0].url);
+			});
+		}
+		return true;
+	});
+}
+
+function sidebarInit() {
+	try {
+  	browser.contentScripts.register({
+		    matches: [sdURL+'/*'],
+		    js: [{file: "browser-polyfill.js"}, {file: "popup/sidebar.js"}],
+		    allFrames : true,
+		    runAt: "document_idle"
+		  });
+	} catch (error) {
+	  console.log(error);
+	}
+}
+
 
 function browserActionClick() { //only if not 'classic' Popup Mode
 	if (popupMode == popupModes.Sidebar) {

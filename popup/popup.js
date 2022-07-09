@@ -1,4 +1,4 @@
-browser.storage.sync.get({Servr:"snapdrop.net"}).then(function (result) {
+browser.storage.sync.get({Servr:"https://snapdrop.net"}).then(function (result) {
 	browser.tabs.query({}).then( tabs => {
 		let sdTabs = tabs.filter(tab => tab.url.includes(result.Servr.split("//")[1]));
 		if (sdTabs.length <= 0) {

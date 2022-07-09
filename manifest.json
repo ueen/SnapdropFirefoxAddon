@@ -11,7 +11,7 @@
   "homepage_url": "https://github.com/ueen/SnapdropFirefoxAddon",
   "manifest_version": 2,
   "name": "Snapdrop Browser Extension",
-  "version": "1.9.5",
+  "version": "1.9.6",
   "options_ui": {
     "page": "options/options.html"
   },
@@ -21,7 +21,8 @@
     "clipboardWrite",
     "downloads",
     "storage",
-    "tabs"
+    "tabs",
+    "<all_urls>"
   ],
   "browser_specific_settings": {
     "gecko": {

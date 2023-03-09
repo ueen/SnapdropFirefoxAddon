@@ -65,8 +65,9 @@ class ServerConnection {
 
     _endpoint() {
         // hack to detect if deployment or development environment
+        const protocol = location.protocol.startsWith('https') ? 'wss' : 'ws';
         const webrtc = window.isRtcSupported ? '/webrtc' : '/fallback';
-        const url = 'wss://' + this._url + '/server' + webrtc;
+        const url =  'wss://' + this._url + '/server' + webrtc;
         return url;
     }
 
@@ -194,6 +195,8 @@ class Peer {
     }
 
     _onChunkReceived(chunk) {
+        if(!chunk.byteLength) return;
+        
         this._digester.unchunk(chunk);
         const progress = this._digester.progress;
         this._onDownloadProgress(progress);
@@ -209,7 +212,6 @@ class Peer {
     }
 
     _onFileReceived(proxyFile) {
-        console.log('file-received');
         Events.fire('file-received', proxyFile);
         this.sendJSON({ type: 'transfer-complete' });
     }
@@ -265,7 +267,6 @@ class RTCPeer extends Peer {
             ordered: true,
             reliable: true // Obsolete. See https://developer.mozilla.org/en-US/docs/Web/API/RTCDataChannel/reliable
         });
-        channel.binaryType = 'arraybuffer';
         channel.onopen = e => this._onChannelOpened(e);
         this._conn.createOffer().then(d => this._onDescription(d)).catch(e => this._onError(e));
     }
@@ -302,6 +303,7 @@ class RTCPeer extends Peer {
     _onChannelOpened(event) {
         console.log('RTC: channel opened with', this._peerId);
         const channel = event.channel || event.target;
+        channel.binaryType = 'arraybuffer';
         channel.onmessage = e => this._onMessage(e.data);
         channel.onclose = e => this._onChannelClosed();
         this._channel = channel;
@@ -455,7 +457,8 @@ class FileChunker {
         this._offset += chunk.byteLength;
         this._partitionSize += chunk.byteLength;
         this._onChunk(chunk);
-        if (this._isPartitionEnd() || this.isFileEnd()) {
+        if (this.isFileEnd()) return;
+        if (this._isPartitionEnd()) {
             this._onPartitionEnd(this._offset);
             return;
         }
@@ -472,7 +475,7 @@ class FileChunker {
     }
 
     isFileEnd() {
-        return this._offset > this._file.size;
+        return this._offset >= this._file.size;
     }
 
     get progress() {
@@ -496,6 +499,8 @@ class FileDigester {
         this._bytesReceived += chunk.byteLength || chunk.size;
         const totalChunks = this._buffer.length;
         this.progress = this._bytesReceived / this._size;
+        if (isNaN(this.progress)) this.progress = 1
+
         if (this._bytesReceived < this._size) return;
         // we are done
         let blob = new Blob(this._buffer, { type: this._mime });
@@ -516,6 +521,10 @@ class Events {
 
     static on(type, callback) {
         return window.addEventListener(type, callback, false);
+    }
+
+    static off(type, callback) {
+        return window.removeEventListener(type, callback, false);
     }
 }
 

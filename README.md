@@ -1,3 +1,6 @@
+# NO FURTHER UPDATES
+# PLEASE REFER TO NEW [PairdropWebExtension](https://github.com/ueen/PairdropWebExtension)
+---
 # Snapdrop Web Extension (Addon)
 Share files between devices in your local network.
 
